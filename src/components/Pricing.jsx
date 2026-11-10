@@ -3,54 +3,62 @@ import { site } from "../config/site.js";
 
 const plans = [
   {
+    tier: "01 · Basic",
     name: "Starter",
-    description: "A sharp one-page site for new businesses.",
-    priceLabel: "Fixed price",
-    price: "$1,200",
-    suffix: "one-time",
+    description: "Perfect for individuals, portfolios and small businesses.",
+    priceLabel: "One-time payment · Introductory price",
+    price: "₹4,999",
+    suffix: "",
     features: [
       "1-page custom website",
-      "Mobile-first design",
-      "Contact form & map",
+      "Mobile-first responsive design",
+      "Contact form & Google Maps",
       "Basic SEO setup",
       "1 round of revisions",
-      "Live in 1–2 weeks",
     ],
+    delivery: "1–2 weeks",
+    bestFor: "Beginners",
     cta: "Start with Starter",
     popular: false,
   },
   {
+    tier: "02 · Moderate",
     name: "Business",
-    description: "For businesses ready to look established.",
-    priceLabel: "Fixed price",
-    price: "$2,400",
-    suffix: "one-time",
+    description: "Ideal for growing businesses that need a professional online presence.",
+    priceLabel: "One-time payment",
+    price: "₹14,999",
+    suffix: "",
     features: [
       "Up to 5 custom pages",
       "Copywriting support",
       "On-page local SEO",
       "Analytics & tracking",
       "2 rounds of revisions",
-      "Live in 2–3 weeks",
+      "Google Maps & contact integration",
     ],
+    delivery: "2–3 weeks",
+    bestFor: "Growing businesses",
     cta: "Start with Business",
     popular: true,
     delay: ".07s",
   },
   {
-    name: "Custom",
-    description: "Shops, bookings, and custom features.",
-    priceLabel: "Starting at",
-    price: "$4,800",
-    suffix: "one-time",
+    tier: "03 · Premium",
+    name: "Advanced",
+    description: "For established businesses looking for advanced features and online growth.",
+    priceLabel: "Starting price · One-time payment",
+    price: "₹49,999+",
+    suffix: "",
     features: [
       "E-commerce or booking system",
-      "Unlimited pages",
+      "Unlimited pages*",
       "Third-party integrations",
       "CMS training & handoff",
       "Priority support",
-      "60 days of care included",
+      "60 days of post-launch care",
     ],
+    delivery: "4–8 weeks, depending on scope",
+    bestFor: "Established businesses",
     cta: "Request a quote",
     popular: false,
     delay: ".14s",
@@ -75,17 +83,30 @@ export default function Pricing() {
               style={plan.delay ? { "--d": plan.delay } : undefined}
             >
               {plan.popular ? <span className="popular-badge">Most popular</span> : null}
+              <p className="price-tier">{plan.tier}</p>
               <h3>{plan.name}</h3>
               <p className="price-desc">{plan.description}</p>
               <p className="price-label">{plan.priceLabel}</p>
               <p className="price">
-                {plan.price} <span className="suffix">{plan.suffix}</span>
+                {plan.price} {plan.suffix ? <span className="suffix">{plan.suffix}</span> : null}
               </p>
               <ul className="features">
                 {plan.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
+              <div className="price-foot">
+                <p>
+                  <span>Delivery</span>
+                  <strong>{plan.delivery}</strong>
+                </p>
+                {plan.bestFor ? (
+                  <p>
+                    <span>Best for</span>
+                    <strong>{plan.bestFor}</strong>
+                  </p>
+                ) : null}
+              </div>
               <a
                 className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"} btn-block`}
                 href="#contact"

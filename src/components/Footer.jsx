@@ -38,9 +38,9 @@ export default function Footer() {
           <div className="footer-brand">
             <a className="brand" href="#top">
               <span className="brand-mark" aria-hidden="true">
-                R
+                D
               </span>
-              <span className="brand-name">Rivet</span>
+              <span className="brand-name">Dev Studio</span>
             </a>
             <p>
               A small studio building websites that earn their keep. Design and development for
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Rivet Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Dev Studio. All rights reserved.</p>
           <div className="footer-socials" aria-label="Social links">
             {socials.map((social) => (
               <a

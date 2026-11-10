@@ -25,7 +25,7 @@ function BrowserMock() {
         <span className="dot" />
         <span className="dot" />
         <span className="dot" />
-        <span className="mock-url">rivet.studio/your-business</span>
+        <span className="mock-url">devstudio.com/your-business</span>
         <span className="mock-live">
           <i />
           Live

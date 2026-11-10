@@ -1,4 +1,4 @@
-# Rivet Studio — landing page
+# Dev Studio — landing page
 
 A minimal, dark one-page site for a freelance web development studio. Built with Vite and React.
 
@@ -64,7 +64,7 @@ If you change the destination email later, FormSubmit will send a fresh activati
 
 ## Make it yours
 
-- **Brand name** — search for `Rivet` across `src/`.
+- **Brand name** — search for `Dev Studio` across `src/`.
 - **Pricing** — edit the `plans` array in `src/components/Pricing.jsx`.
 - **Copy** — each section's text lives in its own component.
 - **Colors and type** — edit the tokens in `:root` at the top of `src/styles.css`.

@@ -44,9 +44,9 @@ export default function Nav() {
       <nav className={`nav${scrolled ? " scrolled" : ""}`} aria-label="Main">
         <a className="brand" href="#top">
           <span className="brand-mark" aria-hidden="true">
-            X
+            D
           </span>
-          <span className="brand-name">Build</span>
+          <span className="brand-name">Dev Studio</span>
         </a>
 
         <div className="nav-links">

@@ -20,7 +20,7 @@ export default function PromiseSection() {
     <section className="section promise" id="promise">
       <div className="container">
         <div className="promise-card" data-reveal>
-          <p className="eyebrow">The Rivet promise</p>
+          <p className="eyebrow">The Dev Studio promise</p>
           <h2>No retainers. No hourly billing. No surprises.</h2>
           <p className="promise-sub">
             You get a fixed quote before we start, a design you approve before we build, and full
