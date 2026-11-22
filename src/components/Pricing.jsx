@@ -1,5 +1,6 @@
 import SectionHead from "./SectionHead.jsx";
 import { site } from "../config/site.js";
+import useTilt from "../hooks/useTilt.js";
 
 const plans = [
   {
@@ -65,6 +66,50 @@ const plans = [
   },
 ];
 
+function PriceCard({ plan }) {
+  const tilt = useTilt({ max: 5 });
+
+  return (
+    <article
+      ref={tilt.ref}
+      onPointerMove={tilt.onPointerMove}
+      onPointerLeave={tilt.onPointerLeave}
+      className={`price-card tilt-card${plan.popular ? " popular" : ""}`}
+      data-reveal
+      style={plan.delay ? { "--d": plan.delay } : undefined}
+    >
+      {plan.popular ? <span className="popular-badge">Most popular</span> : null}
+      <p className="price-tier">{plan.tier}</p>
+      <h3>{plan.name}</h3>
+      <p className="price-desc">{plan.description}</p>
+      <p className="price-label">{plan.priceLabel}</p>
+      <p className="price">
+        {plan.price} {plan.suffix ? <span className="suffix">{plan.suffix}</span> : null}
+      </p>
+      <ul className="features">
+        {plan.features.map((feature) => (
+          <li key={feature}>{feature}</li>
+        ))}
+      </ul>
+      <div className="price-foot">
+        <p>
+          <span>Delivery</span>
+          <strong>{plan.delivery}</strong>
+        </p>
+        {plan.bestFor ? (
+          <p>
+            <span>Best for</span>
+            <strong>{plan.bestFor}</strong>
+          </p>
+        ) : null}
+      </div>
+      <a className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"} btn-block`} href="#contact">
+        {plan.cta}
+      </a>
+    </article>
+  );
+}
+
 export default function Pricing() {
   return (
     <section className="section" id="pricing">
@@ -76,44 +121,7 @@ export default function Pricing() {
 
         <div className="price-grid">
           {plans.map((plan) => (
-            <article
-              className={`price-card${plan.popular ? " popular" : ""}`}
-              key={plan.name}
-              data-reveal
-              style={plan.delay ? { "--d": plan.delay } : undefined}
-            >
-              {plan.popular ? <span className="popular-badge">Most popular</span> : null}
-              <p className="price-tier">{plan.tier}</p>
-              <h3>{plan.name}</h3>
-              <p className="price-desc">{plan.description}</p>
-              <p className="price-label">{plan.priceLabel}</p>
-              <p className="price">
-                {plan.price} {plan.suffix ? <span className="suffix">{plan.suffix}</span> : null}
-              </p>
-              <ul className="features">
-                {plan.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <div className="price-foot">
-                <p>
-                  <span>Delivery</span>
-                  <strong>{plan.delivery}</strong>
-                </p>
-                {plan.bestFor ? (
-                  <p>
-                    <span>Best for</span>
-                    <strong>{plan.bestFor}</strong>
-                  </p>
-                ) : null}
-              </div>
-              <a
-                className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"} btn-block`}
-                href="#contact"
-              >
-                {plan.cta}
-              </a>
-            </article>
+            <PriceCard key={plan.name} plan={plan} />
           ))}
         </div>
 

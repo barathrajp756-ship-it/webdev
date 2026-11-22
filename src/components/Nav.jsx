@@ -6,6 +6,7 @@ const callHref = `tel:${site.phones[0].href}`;
 const links = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
+  { label: "Team", href: "#team" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ];

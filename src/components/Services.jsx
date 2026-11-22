@@ -1,10 +1,16 @@
 import SectionHead from "./SectionHead.jsx";
 import { Bolt, Cart, PenTool, Search, Shield } from "./icons.jsx";
+import useTilt from "../hooks/useTilt.js";
 
 function ServiceCard({ className = "", delay, icon, title, description, children }) {
+  const tilt = useTilt({ max: 5 });
+
   return (
     <article
-      className={`service-card${className ? ` ${className}` : ""}`}
+      ref={tilt.ref}
+      onPointerMove={tilt.onPointerMove}
+      onPointerLeave={tilt.onPointerLeave}
+      className={`service-card tilt-card${className ? ` ${className}` : ""}`}
       data-reveal
       style={delay ? { "--d": delay } : undefined}
     >
